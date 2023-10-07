@@ -1,2 +1,2 @@
-let myVar = 90;
-myVar = 333;
+//update value oy myVar
+let myVar = 333;
