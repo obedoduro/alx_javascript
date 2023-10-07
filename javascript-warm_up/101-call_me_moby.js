@@ -1,4 +1,4 @@
-// Define a function called "callMeMoby" that takes two parameters:
+// Define a function called "callMeMoby" that takes two  2 parameters:
 function callMeMoby(x, theFunction) {
     for (let i = 0; i < x; i++) {
         theFunction();
