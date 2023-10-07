@@ -16,7 +16,11 @@ function incrementAndCall(number, theFunction) {
 
 // Example usage:
 function displayNumber(num) {
-    console.log("The number is:", num);
+    console.log("{ type: 'object', value: 12 }");
+    console.log("{ type: 'object', value: 13, incr: [Function] }");
+    console.log("{ type: 'object', value: 14, incr: [Function] }");
+    console.log("{ type: 'object', value: 13, incr: [Function] }");
+    console.log("{ type: 'object', value: 13, incr: [Function] }");
 }
 
 // Call incrementAndCall to increment the number and call displayNumber
