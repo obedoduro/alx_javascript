@@ -1,4 +1,3 @@
 function add(a, r) {
-
-    return (a + r)
+    return (a + r);
 }
