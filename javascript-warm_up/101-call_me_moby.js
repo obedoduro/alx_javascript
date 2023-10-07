@@ -1,5 +1,6 @@
 // Define a function called "CallMeMob" that takes two  2 parameters:
-function CallMeMob(x, theFunction) {
+const callMeMoby = require('./101-call_me_moby').callMeMoby;
+function callMeMoby(x, theFunction) {
     for (let i = 0; i < x; i++) {
         theFunction();
     }
@@ -11,4 +12,4 @@ function whereIAm() {
 }
 
 // Call CallMeMob to execute whereIAm 5 times
-CallMeMob(5, whereIAm);
+callMeMoby(5, whereIAm);
