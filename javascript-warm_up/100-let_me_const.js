@@ -7,3 +7,6 @@ var myVar = 333;
 
 // Export the modified value (optional)
 module.exports.myVar = myVar;
+
+// Import the modified value of myVar from modifyMyVar.js
+const { myVar } = require('.100-let_me_const');
