@@ -1,3 +1,4 @@
+//const printout, update and pirnt out again 
 const myObject = {
     type: 'object',
     value: 12
