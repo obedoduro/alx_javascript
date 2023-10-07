@@ -1,0 +1,1 @@
+This project we will just be warming up on javascript basis first
