@@ -9,4 +9,4 @@ var myVar = 333;
 module.exports.myVar = myVar;
 
 // Import the modified value of myVar from modifyMyVar.js
-const { myVar } = require('.100-let_me_const');
+const { myVar } = require('./0-javascript_is_amazing');
