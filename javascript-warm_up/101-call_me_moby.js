@@ -1,5 +1,5 @@
-// Define a function called "CallMeMoby" that takes two  2 parameters:
-function CallMeMoby(x, theFunction) {
+// Define a function called "CallMeMob" that takes two  2 parameters:
+function CallMeMob(x, theFunction) {
     for (let i = 0; i < x; i++) {
         theFunction();
     }
@@ -10,5 +10,5 @@ function whereIAm() {
     console.log("Where I am!");
 }
 
-// Call CallMeMoby to execute whereIAm 5 times
-CallMeMoby(5, whereIAm);
+// Call CallMeMob to execute whereIAm 5 times
+CallMeMob(5, whereIAm);
