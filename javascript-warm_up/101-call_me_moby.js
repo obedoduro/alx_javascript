@@ -3,7 +3,7 @@
 // theFunction (the function to be executed)
 function executeXTimes(x, theFunction) {
     for (let i = 0; i < x; i++) {
-        theFunction();
+        //theFunction();
     }
 }
 
@@ -14,3 +14,5 @@ function sayHello() {
 
 // Call executeXTimes to execute sayHello 3 times
 executeXTimes(3, sayHello);
+
+module.exports.executeXTimes = executeXTimes;
