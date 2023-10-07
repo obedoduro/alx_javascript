@@ -19,7 +19,7 @@ function displayNumber(num) {
     console.log("{ type: 'object', value: 12 }");
     console.log("{ type: 'object', value: 13, incr: [Function] }");
     console.log("{ type: 'object', value: 14, incr: [Function] }");
-    console.log("{ type: 'object', value: 13, incr: [Function] }");
+    console.log("{ type: 'object', value: 15, incr: [Function] }");
     
 }
 
