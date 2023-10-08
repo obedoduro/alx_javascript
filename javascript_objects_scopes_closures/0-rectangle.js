@@ -1,0 +1,4 @@
+// rectangle class
+class Rectangle {
+
+}
