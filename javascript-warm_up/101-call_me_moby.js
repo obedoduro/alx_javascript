@@ -13,3 +13,5 @@ function whereIAm() {
 
 // Call CallMeMob to execute whereIAm 5 times
 callMeMoby(5, whereIAm);
+
+module.exports = callMeMoby;
