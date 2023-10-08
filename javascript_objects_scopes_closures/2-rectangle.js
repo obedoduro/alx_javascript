@@ -5,7 +5,7 @@ class Rectangle{
 
         if (w <= 0 || h <= 0 || typeof w !== 'number' || typeof h !== 'number' || !Number.isInteger(w) || !Number.isInteger(h)) {
       // Create an empty object if w or h is not a positive integer or is 0
-      return {};
+      return Rectangle;
         }
         
         this.width = w;
