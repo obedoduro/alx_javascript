@@ -1,3 +1,4 @@
+#!/usr/bin/node
 //class of rectangle identifing h and w
 class Rectangle{
     constructor(w, h) {
