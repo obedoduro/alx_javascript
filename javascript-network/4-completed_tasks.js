@@ -33,13 +33,13 @@ request(apiUrl, (error, response, body) => {
         // Print the users with completed task counts
         for (const userId in completedTasksByUser) {
             
-            if (count <= 8) {
-                console.log(`'${userId}': ${completedTasksByUser[userId]},`);
-                count = count + 1;
-            }
-            if (count === 9) {
-                console.log(`'${userId}': ${completedTasksByUser[userId]}`);
-            }
+            // if (count <= 8) {
+            //     console.log(`'${userId}': ${completedTasksByUser[userId]},`);
+            //     count = count + 1;
+            // }
+            // if (count === 9) {
+            //     console.log(`'${userId}': ${completedTasksByUser[userId]}`);
+            // }
         }
         } else {
             console.error(`Error: Unable to fetch data from ${apiUrl}. Status Code: ${response.statusCode}`);
