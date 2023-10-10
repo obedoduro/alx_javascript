@@ -20,7 +20,7 @@ request(url, (error, response, body) => {
     if (response.statusCode === 200) {
         // Write the response body to the specified file path
         fs.writeFileSync(filePath, body, { encoding: 'utf-8' });
-        console.log(`Contents from ${url} saved to ${filePath}`);
+        //console.log(`Contents from ${url} saved to ${filePath}`);
     } else {
         console.error(`Error: Unable to fetch data from ${url}. Status Code: ${response.statusCode}`);
         process.exit(1);
