@@ -16,7 +16,7 @@ request(apiUrl, (error, response, body) => {
 
         // Create an object to store completed task counts by user ID
         const completedTasksByUser = {};
-        let count = 0;
+      
 
         // Loop through the todos to count completed tasks
         todos.forEach((todo) => {
