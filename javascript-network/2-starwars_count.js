@@ -22,7 +22,7 @@ request(apiUrl, (error, response, body) => {
             movie.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
         );
 
-        console.log(`${wedgeAntillesMovies}`);
+        console.log(`${wedgeAntillesMovies.length}`);
     } else {
         console.error(`Error: Unable to fetch movie data. Status Code: ${response.statusCode}`);
         process.exit(1);
