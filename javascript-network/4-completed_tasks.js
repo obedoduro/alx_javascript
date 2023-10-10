@@ -16,6 +16,7 @@ request(apiUrl, (error, response, body) => {
 
         // Create an object to store completed task counts by user ID
         const completedTasksByUser = {};
+        let count = 0;
 
         // Loop through the todos to count completed tasks
         todos.forEach((todo) => {
@@ -30,10 +31,16 @@ request(apiUrl, (error, response, body) => {
 
         // Print the users with completed task counts
         for (const userId in completedTasksByUser) {
-            console.log(`'${userId}': ${completedTasksByUser[userId]},`);
+            if (count === 0) {
+                console.log(`'${userId}': ${completedTasksByUser[userId]}`);
+            }
+            if (count != 0) {
+                console.log(`'${userId}': ${completedTasksByUser[userId]}`);
+            }
         }
-    } else {
-        console.error(`Error: Unable to fetch data from ${apiUrl}. Status Code: ${response.statusCode}`);
-        process.exit(1);
-    }
+        } else {
+            console.error(`Error: Unable to fetch data from ${apiUrl}. Status Code: ${response.statusCode}`);
+            process.exit(1);
+        }
+    
 });
