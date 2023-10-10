@@ -9,12 +9,11 @@ if (!apiUrl) {
 
 const characterId = 18;
 
-request(apiUrl, (error, reponse, body) => {
+request(apiUrl, (error, response, body) => {
     if (error) {
         console.error('Error:', error);
         process.exit(1);
     }
-
     if (response.statusCode === 200) {
         const moviesData = JSON.parse(body).results;
 
