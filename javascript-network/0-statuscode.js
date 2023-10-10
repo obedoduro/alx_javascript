@@ -1,24 +1,20 @@
-const axios = require('axios');
+const request = require('request');
 
+// Get the URL from the command-line argument
 const url = process.argv[2];
 
 if (!url) {
-    console.error('Usage: node getStatus.js <URL>');
+    console.log('Usage: node getStatusCode.js <url>');
     process.exit(1);
 }
 
-axios.get(url)
-    .then(response => {
-        const statusCode = response.status;
-        console.log('code: ${statusCode}');
+// Send a GET request to the specified URL
+request(url, (error, response) => {
+    if (error) {
+        console.error('Error:', error);
+        process.exit(1);
+    }
 
-    })
-    .catch(error => {
-        if (error.response) {
-            const statusCode = error.response.status;
-            console.error('code: ${statusCode}');
-        } else {
-            console.error('An error occurred: ${error.message}');
-        }
-    });
-  
+    // Display the status code
+    console.log(`code: ${response.statusCode}`);
+});
