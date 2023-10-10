@@ -16,17 +16,17 @@ request(apiUrl, (error, reponse, body) => {
     }
 
     if (response.statusCode === 200) {
-        const moviessData = JSON.parse(body).results;
+        const moviesData = JSON.parse(body).results;
 
 
         //Filter the movies where "Wedge Antilles" (charater ID 18) is present
-        const wedgeAntillesMovies = moviesData.filter((movies) =>
+        const wedgeAntillesMovies = moviesData.filter((movie) =>
             movies.characters.includes('https://swapi-api.alx-tools.com/api/people/${characterId}/')
         );
         console.log('Number of movies whwere Wedge Antilles is present: ${wedgeAntillesMovies.length}');
     
     } else {
-        console.log('Error: Unable to fetch movie data. Status Code: ${response.statusCode}');
+        console.error('Error: Unable to fetch movie data. Status Code: ${response.statusCode}');
         process.exit(1);
     }
 });
