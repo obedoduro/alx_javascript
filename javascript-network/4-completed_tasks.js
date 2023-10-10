@@ -33,9 +33,10 @@ request(apiUrl, (error, response, body) => {
         for (const userId in completedTasksByUser) {
             if (count === 0) {
                 console.log(`'${userId}': ${completedTasksByUser[userId]}`);
+                count = count + 1;
             }
             if (count != 0) {
-                console.log(`'${userId}': ${completedTasksByUser[userId]}`);
+                console.log(`'${userId}': ${completedTasksByUser[userId]},`);
             }
         }
         } else {
