@@ -31,7 +31,7 @@ request(apiUrl, (error, response, body) => {
 
         // Print the users with completed task counts
         for (const userId in completedTasksByUser) {
-            if (count >= 8) {
+            if (count <= 8) {
                 console.log(`'${userId}': ${completedTasksByUser[userId]},`);
                 count = count + 1;
             }
