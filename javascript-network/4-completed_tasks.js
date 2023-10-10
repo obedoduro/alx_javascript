@@ -30,7 +30,7 @@ request(apiUrl, (error, response, body) => {
 
         // Print the users with completed task counts
         for (const userId in completedTasksByUser) {
-            console.log(`User ID ${userId}: ${completedTasksByUser[userId]} completed tasks`);
+            console.log(`${userId}: ${completedTasksByUser[userId]}`);
         }
     } else {
         console.error(`Error: Unable to fetch data from ${apiUrl}. Status Code: ${response.statusCode}`);
