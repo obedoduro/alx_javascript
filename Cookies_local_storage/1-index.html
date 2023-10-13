@@ -1,26 +1,48 @@
-<!-- dist/1-index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookie App</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Cookie Example</title>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Cookies App</h1>
-        <div class="form">
-            <input type="text" id="firstname" placeholder="First Name">
-            <input type="text" id="email" placeholder="Email">
-            <button id="logInButton">Log me in</button>
-            <button id="showCookiesButton">Show the cookies</button>
-        </div>
-        <div id="cookieContainer"></div>
-    </div>
-    <script src="bundle.js"></script>
+    <script>
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + value + expires + "; path=/";
+        }
+
+        // Example usage: Set a cookie named "myCookie" with a value "example" that expires in 10 days.
+        setCookie("myCookie", "example", 10);
+
+        // Check if the cookie is set
+        var cookieValue = getCookie("myCookie");
+        if (cookieValue) {
+            alert("Cookie Value: " + cookieValue);
+        } else {
+            alert("Cookie is not set.");
+        }
+
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                while (cookie.charAt(0) === ' ') {
+                    cookie = cookie.substring(1, cookie.length);
+                }
+                if (cookie.indexOf(nameEQ) === 0) {
+                    return cookie.substring(nameEQ.length, cookie.length);
+                }
+            }
+            return null;
+        }
+    </script>
 </body>
 
 </html>
