@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cookie Example</title>
+</head>
+
+<body>
+    <script>
+        // Function to set a cookie with a specific expiration date
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + value + expires + "; path=/";
+        }
+
+        // Function to get a cookie's value by name
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                while (cookie.charAt(0) === ' ') {
+                    cookie = cookie.substring(1, cookie.length);
+                }
+                if (cookie.indexOf(nameEQ) === 0) {
+                    return cookie.substring(nameEQ.length, cookie.length);
+                }
+            }
+            return "";
+        }
+
+        // Function to display specific information from cookies
+        function showCookies() {
+            var email = getCookie("email");
+            var firstname = getCookie("firstname");
+
+            var emailParagraph = document.createElement("p");
+            emailParagraph.textContent = "Email: " + email + " - Firstname: " + firstname;
+
+            document.body.appendChild(emailParagraph);
+        }
+
+        // Example usage: Set cookies
+        setCookie("email", "user@example.com", 10);
+        setCookie("firstname", "John", 10);
+
+        // Show the information from cookies
+        showCookies();
+    </script>
+</body>
+
+</html>
