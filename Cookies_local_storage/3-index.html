@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Form</title>
+    <style>
+        .welcome-message {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logout-link {
+            font-weight: normal;
+            font-style: italic;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // Function to set a cookie with a specific expiration date
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + value + expires + "; path=/";
+        }
+
+        // Function to get a cookie's value by name
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                while (cookie.charAt(0) === ' ') {
+                    cookie = cookie.substring(1, cookie.length);
+                }
+                if (cookie.indexOf(nameEQ) === 0) {
+                    return cookie.substring(nameEQ.length, cookie.length);
+                }
+            }
+            return "";
+        }
+
+        // Function to remove a cookie by name
+        function deleteCookie(name) {
+            document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+
+        // Function to show the login form
+        function showForm() {
+            var welcomeMessage = document.querySelector('.welcome-message');
+            if (welcomeMessage) {
+                welcomeMessage.style.display = 'none';
+            }
+            var loginForm = document.querySelector('.login-form');
+            if (loginForm) {
+                loginForm.style.display = 'block';
+            }
+        }
+
+        // Function to hide the login form
+        function hideForm() {
+            var loginForm = document.querySelector('.login-form');
+            if (loginForm) {
+                loginForm.style.display = 'none';
+            }
+        }
+
+        // Function to delete cookies and show the login form
+        function deleteCookiesAndShowForm() {
+            deleteCookie('email');
+            deleteCookie('firstname');
+            showForm();
+        }
+
+        // Function to display the welcome message or the login form
+        function showWelcomeMessageOrForm() {
+            var firstname = getCookie('firstname');
+            if (firstname) {
+                // User is logged in, display welcome message
+                var welcomeMessage = document.createElement('h1');
+                welcomeMessage.classList.add('welcome-message');
+                welcomeMessage.textContent = 'Welcome ' + firstname;
+                var logoutLink = document.createElement('a');
+                logoutLink.classList.add('logout-link');
+                logoutLink.href = '#';
+                logoutLink.textContent = ' (logout)';
+                logoutLink.addEventListener('click', function () {
+                    deleteCookiesAndShowForm();
+                    welcomeMessage.style.display = 'none';
+                });
+                welcomeMessage.appendChild(logoutLink);
+                document.body.innerHTML = '';
+                document.body.appendChild(welcomeMessage);
+            } else {
+                // User is not logged in, show the form
+                showForm();
+            }
+        }
+
+        // Example usage: Set cookies
+        setCookie('email', 'user@example.com', 10);
+        setCookie('firstname', 'John', 10);
+
+        // Call the function to display welcome message or form
+        showWelcomeMessageOrForm();
+    </script>
+
+    <div class="login-form" style="display: none;">
+        <h2>Login Form</h2>
+        <input type="text" placeholder="Email">
+        <input type="text" placeholder="Password">
+        <button>Login</button>
+    </div>
+</body>
+
+</html>
